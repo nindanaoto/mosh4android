@@ -36,6 +36,9 @@ for abi in $ABIS; do
     -DCONNECTBOT_BUILD_EMBEDDED_MOSH=ON \
     -DCMAKE_ANDROID_ASSETS_DIRECTORIES="$assets_dir"
 
+  cmake --build "$build_dir" \
+    --target zlib_external protoc_external protobuf_external ncurses_external nettle_external mosh_external \
+    --parallel
   cmake --build "$build_dir" --target moshclient --parallel
 
   mosh_lib="$(find "$build_dir" -name libmoshclient.so -print -quit)"
