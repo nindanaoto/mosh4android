@@ -6,6 +6,9 @@ on:
     tags:
       - "android-*"
 
+permissions:
+  contents: write
+
 jobs:
   android-release-assets:
     runs-on: ubuntu-24.04
